@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<title>Besalú</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --night: #0d1827; --night-2: #13233a; --night-3: #1a2f4c;
+    --text: #f1ece3; --text-soft: #b4bfce;
+    --gold: #d8b878; --gold-soft: #a98d5a; --rose: #e0959c;
+    --line: rgba(216,184,120,0.28);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-padding-top: 24px; }
+  body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; font-weight: 300; overflow-x: clip;
+    padding-bottom: env(safe-area-inset-bottom,0px); }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  .wrap { max-width: 980px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
+
+  .back { position: absolute; top: calc(env(safe-area-inset-top,0px) + 18px); left: max(20px, env(safe-area-inset-left,0px)); z-index: 2;
+    font-size: 0.9rem; color: var(--text); text-decoration: none; background: rgba(13,24,39,0.6); border: 1px solid var(--line); padding: 0.5rem 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .back:hover, .back:focus-visible { border-color: var(--gold); color: var(--gold); }
+
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 62vh; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,24,39,0.45) 0%, rgba(13,24,39,0.3) 40%, rgba(13,24,39,0.95) 100%); }
+  .hero .wrap { width: 100%; padding-block: 8rem 3rem; }
+  .kicker { color: var(--gold); font-size: 0.95rem; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 1; margin-top: 0.6rem; }
+  .hero .sub { font-family: var(--display); font-style: italic; font-size: clamp(1.25rem, 3vw, 1.7rem); margin-top: 1rem; max-width: 34ch; }
+
+  .toc { border-block: 1px solid var(--line); background: var(--night-2); }
+  .toc .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem; padding-block: 0.6rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  section.band { padding-block: 3.6rem 0.6rem; }
+  .band h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-style: italic; font-weight: 400; line-height: 1.1; }
+  .band .lead { color: var(--text-soft); margin-top: 0.7rem; max-width: 62ch; }
+
+  .why p.big { font-family: var(--display); font-size: clamp(1.35rem, 3.2vw, 1.75rem); line-height: 1.45; margin-top: 1.2rem; max-width: 40ch; }
+  .why ul { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .why li { border-top: 1px solid var(--line); padding-top: 0.8rem; color: var(--text-soft); }
+  .why li b { display: block; color: var(--text); font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; }
+  .card h3 { font-size: 1.5rem; color: var(--gold); font-weight: 500; }
+  .card .hl { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; margin-top: 0.4rem; white-space: nowrap; }
+  .card p, .card li { color: var(--text-soft); font-size: 0.95rem; }
+  .card p { margin-top: 0.4rem; }
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .card strong { color: var(--text); font-weight: 400; }
+  .note { margin-top: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose); background: var(--night-2); color: var(--text-soft); font-size: 0.95rem; max-width: 70ch; }
+  .note b { color: var(--rose); font-weight: 400; }
+
+  .tour { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: s; }
+  .tour li { counter-increment: s; display: grid; grid-template-columns: 3.2rem minmax(0,1fr); gap: 0 1.1rem; position: relative; padding-bottom: 1.8rem; }
+  .tour li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--night); background: var(--gold); width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; line-height: 1; }
+  .tour li::after { content: ""; position: absolute; left: 1.3rem; top: 2.9rem; bottom: 0.2rem; width: 1px; background: var(--line); }
+  .tour li:last-child::after { display: none; }
+  .tour h3 { font-size: clamp(1.45rem, 3.4vw, 1.85rem); line-height: 1.15; padding-top: 0.2rem; }
+  .tour h3 small { font-family: var(--body); font-size: 0.8rem; color: var(--rose); font-weight: 400; margin-left: 0.5rem; white-space: nowrap; }
+  .tour p { color: var(--text-soft); margin-top: 0.4rem; max-width: 64ch; }
+  .tour p strong { color: var(--text); font-weight: 400; }
+  .fig { margin: 0.9rem 0 0.2rem; max-width: 520px; }
+  .fig img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border: 1px solid var(--line); background: var(--night-2); }
+  .tag { display: inline-block; font-size: 0.75rem; color: var(--night); background: var(--rose); padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; font-family: var(--body); font-weight: 500; }
+
+  .timeline { margin-top: 1.8rem; border-left: 1px solid var(--line); padding-left: 1.4rem; display: grid; gap: 1.2rem; }
+  .ev { position: relative; }
+  .ev::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--night); border: 1.5px solid var(--gold); }
+  .ev .y { font-family: var(--display); font-size: 1.45rem; color: var(--rose); line-height: 1.2; white-space: nowrap; }
+  .ev p { color: var(--text-soft); max-width: 64ch; }
+  .legend { margin-top: 1.6rem; font-family: var(--display); font-style: italic; font-size: 1.25rem; line-height: 1.5; max-width: 52ch; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .legend span { display: block; font-family: var(--body); font-style: normal; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem; }
+
+  footer { margin-top: 3.4rem; background: var(--night-2); border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 2.6rem 3rem; text-align: center; }
+  footer p.big { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.25; }
+  footer .src { color: var(--text-soft); font-size: 0.8rem; margin-top: 1.6rem; line-height: 1.7; }
+  footer .home { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero { min-height: 56vh; }
+    .hero .wrap { padding-block: 6rem 2.2rem; }
+    .tour li { grid-template-columns: 2.6rem minmax(0,1fr); gap: 0 0.9rem; }
+    .tour li::before { width: 2.2rem; height: 2.2rem; font-size: 1.3rem; }
+    .tour li::after { left: 1.1rem; top: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: rise 0.9s ease both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: 0.24s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back" href="index.html">← Volver al fin de semana</a>
+  <img src="images/besalu-vista.jpg" alt="Vista de Besalú con su puente medieval y los tejados de piedra de la villa">
+  <div class="wrap">
+    <div class="kicker">Domingo 6 de diciembre · 13:00</div>
+    <h1>Besalú</h1>
+    <p class="sub">Nuestra guía para una villa medieval a orillas del río. Primero el puente, después la comida.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#por-que">Por qué</a>
+    <a href="#practico">Información práctica</a>
+    <a href="#imprescindibles">Lo que no hay que perderse</a>
+    <a href="#historia">Historia</a>
+  </div>
+</nav>
+
+<section class="band why" id="por-que">
+  <div class="wrap">
+    <h2>Por qué vamos</h2>
+    <p class="big">Besalú es una villa pequeña y muy bien conservada. Fue la capital de un condado independiente hasta 1111. Su puente fortificado es la imagen más conocida, y todo lo demás está a pocos pasos.</p>
+    <ul>
+      <li><b>Un puente de cuento</b>Un puente románico con una torre, que gira en ángulo recto sobre el río Fluvià.</li>
+      <li><b>Un baño con historia</b>El mikvé es un baño ritual judío medieval. Hay muy pocos que se conserven, y este tiene vistas al río.</li>
+      <li><b>Todo a pie</b>El casco histórico es pequeño. Podemos caminar sin mirar el reloj y comer sin prisa.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="practico">
+  <div class="wrap">
+    <h2>Información práctica</h2>
+    <p class="lead">Los horarios del domingo 6 de diciembre no están publicados en las fuentes que hemos consultado. Lo más seguro es llamar a la oficina de turismo antes de salir.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Oficina de turismo</h3>
+        <p>Calle del Pont, 1. Teléfono <strong>+34 972 591 240</strong>.</p>
+        <p>No hemos encontrado su horario del domingo. Desde allí salen las visitas guiadas al barrio judío y al mikvé.</p>
+      </div>
+      <div class="card">
+        <h3>Visita guiada al mikvé</h3>
+        <div class="hl">2,25 €</div>
+        <p>Dura unos 30 minutos y es la única forma de ver el mikvé por dentro. El Ayuntamiento da pases a las <strong>13:30</strong> y a las <strong>17:30</strong>, salvo martes y jueves. Un blog habla de las 17:00.</p>
+        <p>Si queremos entrar, el pase de las 13:30 encaja con nuestra llegada. Mejor confirmarlo por teléfono.</p>
+      </div>
+      <div class="card">
+        <h3>Llegar y moverse</h3>
+        <p>Hay un aparcamiento público junto al puente medieval y otro en la calle de l'Hospital. No hemos confirmado si son gratuitos.</p>
+        <p>El casco antiguo es pequeño, con unos 2.600 habitantes en todo el municipio. No hemos encontrado cuánto dura exactamente un paseo completo.</p>
+      </div>
+    </div>
+    <div class="note"><b>Antes de ir.</b> Dentro de las iglesias, y en el monasterio, solo se entra con visita guiada desde la oficina de turismo, según una guía de viaje. Por fuera se ven sin horario. La comida de las 14:30 es un plan aparte, tienes la recomendación en la página principal.</div>
+  </div>
+</section>
+
+<section class="band" id="imprescindibles">
+  <div class="wrap">
+    <h2>Lo que no hay que perderse</h2>
+    <p class="lead">En el orden de un paseo tranquilo. Es una recomendación, podemos cambiarlo cuando queramos.</p>
+    <ol class="tour">
+      <li><div>
+        <h3>El Pont Vell<small>siglos XI y XIV</small><span class="tag">La imagen de Besalú</span></h3>
+        <p>El documento más antiguo que lo cita es de <strong>1075</strong>, probablemente el año de su construcción. Se reconstruyó en el siglo XIV tras las riadas y por necesidades defensivas. Resistió hasta la Guerra Civil, y el puente actual es una reconstrucción de principios de los años sesenta.</p>
+        <p>Destaca por sus dimensiones y por un <strong>ángulo recto</strong> sobre el río Fluvià. Una guía le da unos 135 metros, siete arcos desiguales y una torre hexagonal de 30 metros que fue aduana medieval. Cruzarlo de la mano es gratis y no tiene horario.</p>
+        <figure class="fig"><img src="images/besalu-pont-vell.jpg" alt="El puente fortificado de Besalú con su torre sobre el río" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El barrio judío y el mikvé<small>siglo XII</small></h3>
+        <p>En el siglo XII una nueva muralla encerró el barrio judío, la iglesia de Sant Vicenç y el barrio de Vilarrobau. El <strong>mikvé</strong>, el baño ritual, está junto al río, dentro del antiguo call. Probablemente es románico.</p>
+        <p>Es uno de los pocos baños rituales judíos que se conservan y tiene una de las mejores vistas del Fluvià. Solo se visita con guía desde la oficina de turismo, con el horario que hemos comentado arriba.</p>
+        <figure class="fig"><img src="images/besalu-mikve.jpg" alt="Los escalones de piedra del mikvé de Besalú, un baño ritual judío medieval" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El monasterio de Sant Pere<small>siglo X</small></h3>
+        <p>Un monasterio benedictino documentado en el siglo X. Quedó fuera de la muralla del siglo XII y no entró en el recinto fortificado hasta el siglo XIV. Es uno de los edificios medievales más importantes de la villa.</p>
+        <p>La fachada y la plaza se ven libremente. El interior solo se visita con guía. No hemos encontrado el horario del domingo.</p>
+        <figure class="fig"><img src="images/besalu-sant-pere.jpg" alt="El ábside románico del monasterio de Sant Pere de Besalú" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La plaza de la Llibertat y la Cúria Reial<small>siglos XVI y XVII</small></h3>
+        <p>Una plaza con soportales, urbanizada entre los siglos XVI y XVII. También se la llama Plaça Major. Allí está el ayuntamiento del siglo XVII.</p>
+        <p>El edificio gótico de la plaza se atribuye a la <strong>Cúria Reial</strong>, el antiguo tribunal real. La plaza es de paso libre. Es el sitio ideal para sentarnos un momento a ver pasar el día.</p>
+        <figure class="fig"><img src="images/besalu-placa.jpg" alt="La plaza porticada de Besalú con sus arcos de piedra" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La iglesia de Sant Vicenç<small>siglo X</small></h3>
+        <p>La parroquia está documentada en el siglo X y quedó dentro de la muralla del siglo XII. Una guía la describe como uno de los edificios más antiguos de la villa y una joya del románico catalán.</p>
+        <p>Su interior forma parte de la visita guiada completa de la oficina de turismo. No hemos encontrado el horario del domingo.</p>
+        <figure class="fig"><img src="images/besalu-sant-vicenc.jpg" alt="La iglesia románica de Sant Vicenç de Besalú" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El hospital de Sant Julià<small>siglo XII</small><span class="tag">Para los dos</span></h3>
+        <p>Fue un hospital de peregrinos, fundado para pobres y caminantes. Conserva la iglesia de Sant Julià, con una fachada románica. Se conserva sobre todo la fachada, con un portal de arcos.</p>
+        <p>Se visita solo por fuera, así que es un buen rincón para una última foto antes de ir a comer.</p>
+        <figure class="fig"><img src="images/besalu-hospital.jpg" alt="La fachada románica del hospital de Sant Julià en Besalú" loading="lazy"></figure>
+      </div></li>
+    </ol>
+    <div class="note"><b>Si no da tiempo.</b> El puente y la plaza ya son lo mejor de Besalú. Lo demás se puede ver otro día, o simplemente mirarlo desde fuera.</div>
+  </div>
+</section>
+
+<section class="band" id="historia">
+  <div class="wrap">
+    <h2>Un poco de historia</h2>
+    <p class="lead">Besalú tuvo condes propios, un obispo durante tres años y un barrio judío que vivió dentro de su muralla. Casi todo lo que vemos viene de esa época.</p>
+    <div class="timeline">
+      <div class="ev"><div class="y">785</div><p>La zona pasa al condado de Girona tras la ocupación franca.</p></div>
+      <div class="ev"><div class="y">822</div><p>Primera mención conocida del nombre, Bisuldunum.</p></div>
+      <div class="ev"><div class="y">Siglo X</div><p>Se documentan el castillo, la parroquia de Sant Vicenç y el monasterio de Sant Pere.</p></div>
+      <div class="ev"><div class="y">Hacia el año 900</div><p>Tras morir Guifré el Pilós, Besalú gana peso como capital de un condado independiente. Las fuentes dan su muerte en 897 o en 902.</p></div>
+      <div class="ev"><div class="y">1017 a 1020</div><p>Breve obispado de Besalú, promovido por el conde Bernat Tallaferro.</p></div>
+      <div class="ev"><div class="y">1075</div><p>Primer documento que cita el Pont Vell.</p></div>
+      <div class="ev"><div class="y">Siglo XII</div><p>Una nueva muralla encierra el barrio judío, Sant Vicenç y Vilarrobau.</p></div>
+      <div class="ev"><div class="y">1111</div><p>El condado de Besalú se incorpora al de Barcelona.</p></div>
+      <div class="ev"><div class="y">Siglo XIV</div><p>El puente se reconstruye y Sant Pere entra en la última muralla.</p></div>
+      <div class="ev"><div class="y">1390</div><p>Ataque de compañías mercenarias. Bernat IV de Cabrera defiende la villa.</p></div>
+      <div class="ev"><div class="y">1966</div><p>El casco histórico se declara bien cultural de interés nacional.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="big">Un puente, un río y una tarde sin prisa para los dos.</p>
+    <a class="home" href="index.html">← Volver al fin de semana</a>
+    <p class="src">Fuentes: Patrimoni de la Generalitat, Ayuntamiento de Besalú y Wikipedia. Los horarios del domingo 6 no están confirmados y conviene llamar antes.</p>
+  </div>
+</footer>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script></body>
+</html>

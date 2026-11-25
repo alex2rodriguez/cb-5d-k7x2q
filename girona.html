@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<title>Girona</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --night: #0d1827; --night-2: #13233a; --night-3: #1a2f4c;
+    --text: #f1ece3; --text-soft: #b4bfce;
+    --gold: #d8b878; --gold-soft: #a98d5a; --rose: #e0959c;
+    --line: rgba(216,184,120,0.28);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-padding-top: 24px; }
+  body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; font-weight: 300; overflow-x: clip;
+    padding-bottom: env(safe-area-inset-bottom,0px); }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  .wrap { max-width: 980px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
+
+  .back { position: absolute; top: calc(env(safe-area-inset-top,0px) + 18px); left: max(20px, env(safe-area-inset-left,0px)); z-index: 2;
+    font-size: 0.9rem; color: var(--text); text-decoration: none; background: rgba(13,24,39,0.6); border: 1px solid var(--line); padding: 0.5rem 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .back:hover, .back:focus-visible { border-color: var(--gold); color: var(--gold); }
+
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 62vh; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,24,39,0.45) 0%, rgba(13,24,39,0.3) 40%, rgba(13,24,39,0.95) 100%); }
+  .hero .wrap { width: 100%; padding-block: 8rem 3rem; }
+  .kicker { color: var(--gold); font-size: 0.95rem; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 1; margin-top: 0.6rem; }
+  .hero .sub { font-family: var(--display); font-style: italic; font-size: clamp(1.25rem, 3vw, 1.7rem); margin-top: 1rem; max-width: 34ch; }
+
+  .toc { border-block: 1px solid var(--line); background: var(--night-2); }
+  .toc .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem; padding-block: 0.6rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  section.band { padding-block: 3.6rem 0.6rem; }
+  .band h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-style: italic; font-weight: 400; line-height: 1.1; }
+  .band .lead { color: var(--text-soft); margin-top: 0.7rem; max-width: 62ch; }
+
+  .why p.big { font-family: var(--display); font-size: clamp(1.35rem, 3.2vw, 1.75rem); line-height: 1.45; margin-top: 1.2rem; max-width: 40ch; }
+  .why ul { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .why li { border-top: 1px solid var(--line); padding-top: 0.8rem; color: var(--text-soft); }
+  .why li b { display: block; color: var(--text); font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; }
+  .card h3 { font-size: 1.5rem; color: var(--gold); font-weight: 500; }
+  .card .hl { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; margin-top: 0.4rem; white-space: nowrap; }
+  .card p, .card li { color: var(--text-soft); font-size: 0.95rem; }
+  .card p { margin-top: 0.4rem; }
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .card strong { color: var(--text); font-weight: 400; }
+  .note { margin-top: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose); background: var(--night-2); color: var(--text-soft); font-size: 0.95rem; max-width: 70ch; }
+  .note b { color: var(--rose); font-weight: 400; }
+
+  .tour { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: s; }
+  .tour li { counter-increment: s; display: grid; grid-template-columns: 3.2rem minmax(0,1fr); gap: 0 1.1rem; position: relative; padding-bottom: 1.8rem; }
+  .tour li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--night); background: var(--gold); width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; line-height: 1; }
+  .tour li::after { content: ""; position: absolute; left: 1.3rem; top: 2.9rem; bottom: 0.2rem; width: 1px; background: var(--line); }
+  .tour li:last-child::after { display: none; }
+  .tour h3 { font-size: clamp(1.45rem, 3.4vw, 1.85rem); line-height: 1.15; padding-top: 0.2rem; }
+  .tour h3 small { font-family: var(--body); font-size: 0.8rem; color: var(--rose); font-weight: 400; margin-left: 0.5rem; white-space: nowrap; }
+  .tour p { color: var(--text-soft); margin-top: 0.4rem; max-width: 64ch; }
+  .tour p strong { color: var(--text); font-weight: 400; }
+  .fig { margin: 0.9rem 0 0.2rem; max-width: 520px; }
+  .fig img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border: 1px solid var(--line); background: var(--night-2); }
+  .tag { display: inline-block; font-size: 0.75rem; color: var(--night); background: var(--rose); padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; font-family: var(--body); font-weight: 500; }
+
+  .timeline { margin-top: 1.8rem; border-left: 1px solid var(--line); padding-left: 1.4rem; display: grid; gap: 1.2rem; }
+  .ev { position: relative; }
+  .ev::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--night); border: 1.5px solid var(--gold); }
+  .ev .y { font-family: var(--display); font-size: 1.45rem; color: var(--rose); line-height: 1.2; white-space: nowrap; }
+  .ev p { color: var(--text-soft); max-width: 64ch; }
+  .legend { margin-top: 1.6rem; font-family: var(--display); font-style: italic; font-size: 1.25rem; line-height: 1.5; max-width: 52ch; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .legend span { display: block; font-family: var(--body); font-style: normal; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem; }
+
+  footer { margin-top: 3.4rem; background: var(--night-2); border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 2.6rem 3rem; text-align: center; }
+  footer p.big { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.25; }
+  footer .src { color: var(--text-soft); font-size: 0.8rem; margin-top: 1.6rem; line-height: 1.7; }
+  footer .home { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero { min-height: 56vh; }
+    .hero .wrap { padding-block: 6rem 2.2rem; }
+    .tour li { grid-template-columns: 2.6rem minmax(0,1fr); gap: 0 0.9rem; }
+    .tour li::before { width: 2.2rem; height: 2.2rem; font-size: 1.3rem; }
+    .tour li::after { left: 1.1rem; top: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: rise 0.9s ease both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: 0.24s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back" href="index.html">← Volver al fin de semana</a>
+  <img src="images/girona-onyar.jpg" alt="Las casas de colores sobre el río Onyar en Girona, con el puente rojo al fondo y la luz de la tarde">
+  <div class="wrap">
+    <div class="kicker">Domingo 6 de diciembre · 16:30</div>
+    <h1>Girona</h1>
+    <p class="sub">Nuestra guía para el último paseo. Casas de colores sobre el río justo cuando cae la luz.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#por-que">Por qué</a>
+    <a href="#practico">Información práctica</a>
+    <a href="#imprescindibles">Lo que no hay que perderse</a>
+    <a href="#historia">Historia</a>
+  </div>
+</nav>
+
+<section class="band why" id="por-que">
+  <div class="wrap">
+    <h2>Por qué vamos</h2>
+    <p class="big">Girona cabe en un paseo corto y tiene mucho que ver. Cruzamos el puente rojo sobre el Onyar y subimos por los callejones del Call hasta la catedral. Al atardecer las casas de colores se reflejan en el río.</p>
+    <ul>
+      <li><b>Un paseo que se hace solo</b>Todo está muy cerca. Hora y media alcanza para dar una vuelta tranquila, sin correr.</li>
+      <li><b>Aunque esté cerrado, se disfruta</b>El puente, las casas del río, los callejones y la escalera de la catedral se ven por fuera. Esa es la parte más bonita.</li>
+      <li><b>La luz de diciembre</b>Llegamos a las 16:30 y el sol se pone a las 17:21. Haremos casi todo el paseo con la luz dorada y el final con las primeras luces de la ciudad.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="practico">
+  <div class="wrap">
+    <h2>Información práctica</h2>
+    <p class="lead">Hay poco tiempo y algunos monumentos cierran pronto en domingo. Los horarios cambian según la fuente, así que conviene mirarlos el sábado.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Horarios del domingo 6</h3>
+        <ul>
+          <li><strong>Catedral:</strong> de 12:00 a 18:00 según el turismo de Girona. Otras fuentes dicen que cierra a las 18:30 o a las 19:00.</li>
+          <li><strong>Basílica de Sant Feliu:</strong> de 13:00 a 18:00 según el turismo de Girona. Otra fuente dice 17:30.</li>
+          <li><strong>Banys Àrabs:</strong> los domingos abren de 10:00 a 14:00. A nuestra hora estarán cerrados.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Entradas</h3>
+        <p>La catedral y la basílica se pueden ver con una entrada conjunta. El turismo de Girona da <strong>7,5 €</strong> para adultos, con audioguía. Es un dato que conviene confirmar.</p>
+        <p>Los Banys Àrabs cuestan <strong>3 €</strong>, pero este domingo los veremos solo por fuera.</p>
+        <p>Pasear por el puente, el río, el Call y las murallas no cuesta nada.</p>
+      </div>
+      <div class="card">
+        <h3>Cómo hacerlo en 1 h 30</h3>
+        <p>Entramos solo en <strong>una</strong> iglesia, y mejor la primera que encontremos abierta, porque las dos cierran sobre las 18:00.</p>
+        <p>El resto lo hacemos por fuera, sin horario. Los minutos exactos entre paradas no los hemos encontrado, pero el centro es pequeño.</p>
+        <p>Dónde aparcar: no hemos encontrado un dato fiable. Lo mejor es mirar el mapa al llegar.</p>
+      </div>
+    </div>
+    <div class="note"><b>A las 18:00 volvemos al coche.</b> Es domingo por la tarde en un fin de semana largo, y la carretera de vuelta será de noche. Con calma y sin prisa, pero con un ojo en el reloj.</div>
+  </div>
+</section>
+
+<section class="band" id="imprescindibles">
+  <div class="wrap">
+    <h2>Lo que no hay que perderse</h2>
+    <p class="lead">Una vuelta propuesta en este orden. Es una recomendación, el corazón decide.</p>
+    <ol class="tour">
+      <li><div>
+        <h3>Las casas del Onyar y el puente rojo<small>siglo XIX</small><span class="tag">La imagen de Girona</span></h3>
+        <p>El <strong>Pont de les Peixateries Velles</strong> cruza el río Onyar. Es peatonal y lo construyó la compañía de Gustave Eiffel en 1877, según Wikipedia. Otras fuentes dan 1876. Se levantó unos diez años antes que la Torre Eiffel de París. Sustituyó a unas pasarelas de madera que las crecidas destruían.</p>
+        <p>Las casas colgadas sobre el agua tienen las fachadas pintadas con una paleta de colores. Una de ellas es la <strong>Casa Masó</strong>, en la calle Ballesteries, blanca y azul. Es la casa donde nació el arquitecto Rafael Masó.</p>
+        <figure class="fig"><img src="images/girona-peixateries.jpg" alt="El puente rojo de hierro sobre el Onyar, visto desde dentro, con las casas de colores al fondo" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>Carrer de la Força y el Call<small>siglos XII a XV</small></h3>
+        <p>El <strong>Call</strong> es uno de los barrios judíos mejor conservados de España. Es un laberinto de callejones estrechos y empinados en torno a la calle de la Força. Una comunidad pequeña vivió aquí hasta finales del siglo XV. Su época de más esplendor fue la de la escuela cabalística.</p>
+        <p>En el Centro Bonastruc Ça Porta está el Museo de Historia de los Judíos. No hemos encontrado su horario ni su precio. Si está cerrado, los callejones se disfrutan igual.</p>
+        <figure class="fig"><img src="images/girona-call.jpg" alt="Un patio con escalera de piedra bajo un arco en el Call de Girona" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La basílica de Sant Feliu<small>siglos XII a XVII</small></h3>
+        <p>Nace de un <strong>martyrium</strong> paleocristiano, un pequeño templo sobre la tumba de un mártir, junto a una calzada romana. Guarda ocho sarcófagos romanos y paleocristianos de los siglos III y IV. También tiene la tumba gótica de san Narciso, patrón de la ciudad.</p>
+        <p>Su campanario gótico es de los siglos XIV a XVI. Un rayo le cortó la punta. Fue declarada basílica menor en 2011. Al pie de su escalera hay una columna con una leona encima, del siglo XII, la <strong>Lleona</strong>.</p>
+        <figure class="fig"><img src="images/girona-sant-feliu.jpg" alt="El campanario gótico de Sant Feliu sobre los tejados de Girona" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La catedral y su escalera<small>desde el siglo XI</small><span class="tag">La joya</span></h3>
+        <p>Empezó en estilo románico en el siglo XI. La primera piedra de la parte gótica se puso el 29 de abril de 1312. Tiene la <strong>nave gótica más ancha del mundo</strong>, con casi 23 metros.</p>
+        <p>Dentro está el <strong>Tapiz de la Creación</strong>, una pieza románica única, que se ve en la sala capitular. Aunque no entremos, la gran escalinata de la fachada ya es un paseo para sentarse un momento a mirar la ciudad.</p>
+        <figure class="fig"><img src="images/girona-catedral-escalera.jpg" alt="La fachada de la catedral de Girona al final de su gran escalinata" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>Los Banys Àrabs, por fuera<small>siglos XII y XIII</small></h3>
+        <p>No son árabes. Son unos <strong>baños públicos cristianos</strong> de estilo románico, hechos al modelo de las termas romanas y de los baños islámicos. Se mencionan por primera vez en 1194. Se derribaron en el asedio de 1285 y se reconstruyeron desde 1294.</p>
+        <p>Dentro hay una piscina octogonal con ocho columnas esbeltas y una linterna que deja entrar la luz. Este domingo cierran a las 14:00, así que quedan para otra vez.</p>
+        <figure class="fig"><img src="images/girona-banys-arabs.jpg" alt="La piscina octogonal con columnas y la linterna de los Banys Àrabs" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El Passeig Arqueològic y las murallas<small>siglos IX a XV</small><span class="tag">Para los dos</span></h3>
+        <p>Las murallas carolingias son del siglo IX. Las bajomedievales son de los siglos XIV y XV. El paseo conserva las torres Julia y Cornelia y termina en los Banys Àrabs.</p>
+        <p>Se suele recorrer desde los Jardins dels Alemanys hasta los Jardins de la Muralla. Es gratis, pero no hemos encontrado su horario y no sabemos si cierra al anochecer. Si está abierto, es un buen final para el crepúsculo.</p>
+        <figure class="fig"><img src="images/girona-muralla.jpg" alt="El camino de ronda sobre la muralla de Girona" loading="lazy"></figure>
+      </div></li>
+    </ol>
+    <div class="note"><b>Si todo está cerrado.</b> No pasa nada. El puente, las casas del río, los callejones del Call, la escalera de la catedral y las murallas se disfrutan por fuera.</div>
+  </div>
+</section>
+
+<section class="band" id="historia">
+  <div class="wrap">
+    <h2>Un poco de historia</h2>
+    <p class="lead">Girona nació como un campamento romano y fue durante siglos una ciudad fortificada. Casi cada rincón del paseo guarda una de esas épocas.</p>
+    <div class="legend"><span>La leyenda</span>Se cuenta que cuando los franceses sitiaron la ciudad en 1285, unas moscas salieron de la tumba de san Narciso y ahuyentaron a los ejércitos. Por eso las moscas de san Narciso siguen siendo parte de la memoria de Girona.</div>
+    <div class="timeline">
+      <div class="ev"><div class="y">Hacia el 77 a. C.</div><p>Pompeyo levanta un oppidum, el origen de la Gerunda romana.</p></div>
+      <div class="ev"><div class="y">785</div><p>La ciudad se entrega a Carlomagno a cambio de conservar sus leyes.</p></div>
+      <div class="ev"><div class="y">Siglo IX</div><p>Se construyen las murallas carolingias.</p></div>
+      <div class="ev"><div class="y">1194</div><p>Primera mención de los Banys Àrabs.</p></div>
+      <div class="ev"><div class="y">1312</div><p>Se pone la primera piedra de la parte gótica de la catedral.</p></div>
+      <div class="ev"><div class="y">1391 y 1492</div><p>Un pogromo en el Call y, un siglo después, la expulsión de los judíos.</p></div>
+      <div class="ev"><div class="y">1877</div><p>La compañía de Eiffel construye el puente rojo sobre el Onyar. Otras fuentes dicen 1876.</p></div>
+      <div class="ev"><div class="y">1889</div><p>Girona deja de ser plaza fuerte.</p></div>
+      <div class="ev"><div class="y">2011</div><p>Sant Feliu pasa a ser basílica menor.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="big">Una vuelta al atardecer, y todo el camino a casa para recordarla.</p>
+    <a class="home" href="index.html">← Volver al fin de semana</a>
+    <p class="src">Fuentes: Wikipedia, banysarabs.cat y Turisme de Girona. Los horarios cambian según la fuente y conviene mirarlos el sábado.</p>
+  </div>
+</footer>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script></body>
+</html>

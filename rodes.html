@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<title>Sant Pere de Rodes</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  /* VOICE: tierna y serena, como una pequeña guía de bolsillo para dos.
+     IDEA: la hoja de visita que te dan en la taquilla de un monasterio, puesta de noche.
+     PICTURE: la foto del monasterio sobre el mar, y un recorrido numerado como un plano.
+     COLOUR y TYPE: los mismos de la escapada. Azul medianoche, oro champán, rosa. Cormorant + Jost.
+     LAYOUT: portada, por qué, datos prácticos, imprescindibles en orden de visita, historia, volver. */
+  :root {
+    --night: #0d1827; --night-2: #13233a; --night-3: #1a2f4c;
+    --text: #f1ece3; --text-soft: #b4bfce;
+    --gold: #d8b878; --gold-soft: #a98d5a; --rose: #e0959c;
+    --line: rgba(216,184,120,0.28);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-padding-top: 24px; }
+  body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; font-weight: 300; overflow-x: clip;
+    padding-bottom: env(safe-area-inset-bottom,0px); }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  .wrap { max-width: 980px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
+
+  .back { position: absolute; top: calc(env(safe-area-inset-top,0px) + 18px); left: max(20px, env(safe-area-inset-left,0px)); z-index: 2;
+    font-size: 0.9rem; color: var(--text); text-decoration: none; background: rgba(13,24,39,0.6); border: 1px solid var(--line); padding: 0.5rem 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .back:hover, .back:focus-visible { border-color: var(--gold); color: var(--gold); }
+
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 62vh; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,24,39,0.45) 0%, rgba(13,24,39,0.3) 40%, rgba(13,24,39,0.95) 100%); }
+  .hero .wrap { width: 100%; padding-block: 8rem 3rem; }
+  .kicker { color: var(--gold); font-size: 0.95rem; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 1; margin-top: 0.6rem; }
+  .hero .sub { font-family: var(--display); font-style: italic; font-size: clamp(1.25rem, 3vw, 1.7rem); margin-top: 1rem; max-width: 34ch; }
+
+  .toc { border-block: 1px solid var(--line); background: var(--night-2); }
+  .toc .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem; padding-block: 0.6rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  section.band { padding-block: 3.6rem 0.6rem; }
+  .band h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-style: italic; font-weight: 400; line-height: 1.1; }
+  .band .lead { color: var(--text-soft); margin-top: 0.7rem; max-width: 62ch; }
+
+  .why p.big { font-family: var(--display); font-size: clamp(1.35rem, 3.2vw, 1.75rem); line-height: 1.45; margin-top: 1.2rem; max-width: 40ch; }
+  .why ul { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .why li { border-top: 1px solid var(--line); padding-top: 0.8rem; color: var(--text-soft); }
+  .why li b { display: block; color: var(--text); font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; }
+  .card h3 { font-size: 1.5rem; color: var(--gold); font-weight: 500; }
+  .card .hl { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; margin-top: 0.4rem; white-space: nowrap; }
+  .card p, .card li { color: var(--text-soft); font-size: 0.95rem; }
+  .card p { margin-top: 0.4rem; }
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .card strong { color: var(--text); font-weight: 400; }
+  .note { margin-top: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose); background: var(--night-2); color: var(--text-soft); font-size: 0.95rem; max-width: 70ch; }
+  .note b { color: var(--rose); font-weight: 400; }
+
+  .tour { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: s; }
+  .tour li { counter-increment: s; display: grid; grid-template-columns: 3.2rem minmax(0,1fr); gap: 0 1.1rem; position: relative; padding-bottom: 1.8rem; }
+  .tour li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--night); background: var(--gold); width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; line-height: 1; }
+  .tour li::after { content: ""; position: absolute; left: 1.3rem; top: 2.9rem; bottom: 0.2rem; width: 1px; background: var(--line); }
+  .tour li:last-child::after { display: none; }
+  .tour h3 { font-size: clamp(1.45rem, 3.4vw, 1.85rem); line-height: 1.15; padding-top: 0.2rem; }
+  .tour h3 small { font-family: var(--body); font-size: 0.8rem; color: var(--rose); font-weight: 400; margin-left: 0.5rem; white-space: nowrap; }
+  .tour p { color: var(--text-soft); margin-top: 0.4rem; max-width: 64ch; }
+  .tour p strong { color: var(--text); font-weight: 400; }
+  .fig { margin: 0.9rem 0 0.2rem; max-width: 520px; }
+  .fig img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border: 1px solid var(--line); background: var(--night-2); }
+  .tag { display: inline-block; font-size: 0.75rem; color: var(--night); background: var(--rose); padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; font-family: var(--body); font-weight: 500; }
+
+  .timeline { margin-top: 1.8rem; border-left: 1px solid var(--line); padding-left: 1.4rem; display: grid; gap: 1.2rem; }
+  .ev { position: relative; }
+  .ev::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--night); border: 1.5px solid var(--gold); }
+  .ev .y { font-family: var(--display); font-size: 1.45rem; color: var(--rose); line-height: 1.2; white-space: nowrap; }
+  .ev p { color: var(--text-soft); max-width: 64ch; }
+  .legend { margin-top: 1.6rem; font-family: var(--display); font-style: italic; font-size: 1.25rem; line-height: 1.5; max-width: 52ch; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .legend span { display: block; font-family: var(--body); font-style: normal; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem; }
+
+  footer { margin-top: 3.4rem; background: var(--night-2); border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 2.6rem 3rem; text-align: center; }
+  footer p.big { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.25; }
+  footer .src { color: var(--text-soft); font-size: 0.8rem; margin-top: 1.6rem; line-height: 1.7; }
+  footer .home { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero { min-height: 56vh; }
+    .hero .wrap { padding-block: 6rem 2.2rem; }
+    .tour li { grid-template-columns: 2.6rem minmax(0,1fr); gap: 0 0.9rem; }
+    .tour li::before { width: 2.2rem; height: 2.2rem; font-size: 1.3rem; }
+    .tour li::after { left: 1.1rem; top: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: rise 0.9s ease both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: 0.24s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back" href="index.html">← Volver al fin de semana</a>
+  <img src="images/rodes.jpg" alt="Las torres del monasterio de Sant Pere de Rodes entre el monte y el mar">
+  <div class="wrap">
+    <div class="kicker">Sábado 5 de diciembre · 11:00</div>
+    <h1>Sant Pere de Rodes</h1>
+    <p class="sub">Nuestra guía para la primera parada. Un monasterio colgado a 520 metros sobre el mar.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#por-que">Por qué</a>
+    <a href="#practico">Información práctica</a>
+    <a href="#imprescindibles">Lo que no hay que perderse</a>
+    <a href="#historia">Historia</a>
+  </div>
+</nav>
+
+<section class="band why" id="por-que">
+  <div class="wrap">
+    <h2>Por qué vamos</h2>
+    <p class="big">Es una de las joyas del románico catalán, y está en uno de los lugares más bonitos de Cataluña. Desde arriba se ven a la vez la bahía de El Port de la Selva y el Cap de Creus.</p>
+    <ul>
+      <li><b>Arte único</b>Una iglesia de los siglos X y XI que quiso parecerse a los templos de Roma. No hay otra igual.</li>
+      <li><b>Paisaje</b>Está en el punto más alto del Parque Natural del Cap de Creus, entre monte, viñas y mar.</li>
+      <li><b>Leyenda</b>Durante siglos fue un destino de peregrinos, como una pequeña alternativa a ir a Roma.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="practico">
+  <div class="wrap">
+    <h2>Información práctica</h2>
+    <p class="lead">Datos de la web oficial de Patrimoni (Generalitat de Catalunya), consultados en noviembre de 2026.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Horario del sábado 5</h3>
+        <div class="hl">10:00 a 17:30</div>
+        <p>Abre con normalidad ese día. La taquilla y la entrada cierran <strong>30 minutos antes</strong>, así que el último acceso es a las 17:00.</p>
+      </div>
+      <div class="card">
+        <h3>Entradas</h3>
+        <div class="hl">Ahora gratis</div>
+        <p>Por obras de restauración y mejora, la entrada general es <strong>gratuita</strong> de momento. No hay fecha de fin publicada.</p>
+        <p>Precio habitual: <strong>7 €</strong> general, <strong>5 €</strong> reducida (mayores de 65, estudiantes y otros).</p>
+      </div>
+      <div class="card">
+        <h3>Llegar y moverse</h3>
+        <p>Dirección: Camí del Monestir, s/n, 17489 El Port de la Selva.</p>
+        <p>La carretera sube con muchas curvas desde El Port de la Selva o desde Vilajuïga. El último tramo se hace a pie desde el aparcamiento.</p>
+        <p>Tiempo recomendado: <strong>1 h a 1 h 15</strong>, lo que tenemos en el plan.</p>
+      </div>
+    </div>
+    <div class="note"><b>Antes de ir.</b> Mientras duran las obras, el teléfono y el correo habituales no están disponibles. Para dudas urgentes: monuments.acdpc@gencat.cat. Vale la pena mirar la <a href="https://patrimoni.gencat.cat/en/monuments/monuments/sant-pere-de-rodes-monumental-complex" target="_blank" rel="noopener">web oficial</a> el viernes por si cambia algo, y llevar abrigo. Arriba sopla la tramontana y en diciembre hace frío.</div>
+  </div>
+</section>
+
+<section class="band" id="imprescindibles">
+  <div class="wrap">
+    <h2>Lo que no hay que perderse</h2>
+    <p class="lead">En el orden en que lo iremos encontrando. Así cabe todo en algo más de una hora.</p>
+    <ol class="tour">
+      <li><div>
+        <h3>La galilea y la portada<small>siglo XI</small></h3>
+        <p>El atrio de entrada a la iglesia, antiguo panteón de los condes de Empúries. Aquí estaba la portada de mármol del <strong>Maestro de Cabestany</strong>, el gran escultor del siglo XII. Fue expoliada a principios del siglo XIX y hoy se ven copias de sus relieves.</p>
+        <figure class="fig"><img src="images/rodes-galilea.jpg" alt="Arco de la entrada a la iglesia de Sant Pere de Rodes, con la puerta al fondo" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La nave de la iglesia<small>siglos X y XI</small><span class="tag">La joya</span></h3>
+        <p>Al entrar, mirar hacia arriba. La bóveda de cañón alcanza <strong>16 metros</strong> de altura. Las columnas se apoyan sobre zócalos muy altos y los capiteles imitan modelos romanos. Es una iglesia pensada para recordar a Roma, y no se parece a ninguna otra del románico.</p>
+        <figure class="fig"><img src="images/rodes-nave.jpg" alt="Columnas, arcos y capiteles de la nave de la iglesia de Sant Pere de Rodes" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>La girola y la cripta<small>siglos X y XI</small></h3>
+        <p>El pasillo que rodea el altar por detrás era el camino de los peregrinos, para acercarse a las reliquias sin interrumpir a los monjes. Debajo está la <strong>cripta</strong> en forma de anillo, donde se guardaban. En la girola quedan restos de pintura con figuras con aureola.</p>
+      </div></li>
+      <li><div>
+        <h3>El claustro inferior<small>siglo XI</small></h3>
+        <p>Uno de los claustros más antiguos de Cataluña. Estuvo escondido y se descubrió en 1989. En la galería este se conservan pinturas originales: un <strong>león</strong> y una escena del <strong>Calvario</strong>.</p>
+        <figure class="fig"><img src="images/rodes-claustro-inferior.jpg" alt="Pintura mural antigua protegida tras un cristal en el claustro" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El claustro superior<small>siglo XII</small></h3>
+        <p>El corazón del monasterio. Sus columnas y capiteles se saquearon tras el abandono y se reconstruyó en 1973 y 1997. Es el mejor sitio para sentarnos un momento en silencio.</p>
+        <figure class="fig"><img src="images/rodes-claustro-superior.jpg" alt="Claustro con arcos de medio punto y una fuente en el centro del patio" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El campanario y la torre de defensa<small>siglos XII y XIII</small></h3>
+        <p>Las dos torres que se ven desde lejos. El <strong>campanario</strong>, con decoración lombarda en el último piso, es la foto clásica del lugar. La <strong>torre de defensa</strong> no tenía puerta en la planta baja, para protegerse de piratas y bandidos.</p>
+        <figure class="fig"><img src="images/rodes-campanario.jpg" alt="El campanario de Sant Pere de Rodes sobre los muros del monasterio" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>El mirador<small>nuestro momento</small><span class="tag">Para los dos</span></h3>
+        <p>Junto a la torre de defensa se abre la vista sobre la bahía de El Port de la Selva y el Cap de Creus. Aquí está el abrazo frente al mar que nos prometimos.</p>
+        <figure class="fig"><img src="images/rodes-mirador.jpg" alt="Vista desde el monasterio sobre la bahía de El Port de la Selva y el mar" loading="lazy"></figure>
+      </div></li>
+      <li><div>
+        <h3>Santa Helena de Santa Creu<small>si sobra tiempo</small></h3>
+        <p>Cerca del aparcamiento quedan las ruinas del pueblo medieval de Santa Creu, que llegó a tener unos 250 habitantes. Su iglesia de Santa Helena se ve en pocos minutos, de camino al coche.</p>
+        <figure class="fig"><img src="images/rodes-santa-helena.jpg" alt="La pequeña iglesia de Santa Helena con su espadaña, entre ruinas" loading="lazy"></figure>
+      </div></li>
+    </ol>
+    <div class="note"><b>Mejor dejarlo para otra vez.</b> El castillo de Sant Salvador de Verdera, en la cima, pide una subida a pie más larga. Con el tiempo justo para Cadaqués, no compensa en este viaje.</div>
+  </div>
+</section>
+
+<section class="band" id="historia">
+  <div class="wrap">
+    <h2>Un poco de historia</h2>
+    <p class="lead">El conjunto tenía tres partes, como la sociedad medieval: el monasterio para los que rezan, el pueblo de Santa Creu para los que trabajan y el castillo de Verdera para los que luchan.</p>
+    <div class="legend"><span>La leyenda</span>Se cuenta que unos monjes huyeron de Roma con las reliquias de san Pedro para salvarlas de una invasión, y las escondieron en esta montaña. Es una leyenda, pero explica el nombre y la fama del lugar.</div>
+    <div class="timeline">
+      <div class="ev"><div class="y">Siglo VI</div><p>La arqueología ha encontrado aquí un gran edificio de época tardoantigua. No se sabe para qué servía.</p></div>
+      <div class="ev"><div class="y">878</div><p>Primera mención escrita: una pequeña celda monástica dedicada a san Pedro.</p></div>
+      <div class="ev"><div class="y">944</div><p>Se convierte en abadía independiente. Con el apoyo de los condes de Empúries crece hasta ser uno de los centros de poder más importantes de Cataluña.</p></div>
+      <div class="ev"><div class="y">1022</div><p>Única fecha de consagración conocida. Probablemente solo de la cabecera. La iglesia se terminaría a lo largo del siglo XI.</p></div>
+      <div class="ev"><div class="y">Siglos XI a XVII</div><p>Gran centro de peregrinación. Se celebraban jubileos cuando el 3 de mayo caía en viernes, hasta 1697.</p></div>
+      <div class="ev"><div class="y">Siglos XIV a XVIII</div><p>Declive por guerras, epidemias, crisis y ataques de piratas y bandidos. Nunca vivieron aquí más de unos veinte monjes.</p></div>
+      <div class="ev"><div class="y">1798</div><p>Los monjes abandonan el monasterio y se van a Vilassacra. En 1818 pasan a Figueres y en 1835 la comunidad desaparece con la desamortización. Siguen décadas de saqueo.</p></div>
+      <div class="ev"><div class="y">1930</div><p>Declarado Monumento Histórico Artístico Nacional. Empiezan las restauraciones.</p></div>
+      <div class="ev"><div class="y">1989 a 1999</div><p>Gran campaña de excavación y restauración. Aparece el claustro inferior y un tesoro de 658 monedas de oro y plata, hoy en el MNAC de Barcelona.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="big">Una hora en lo alto, y todo el Mediterráneo para nosotros.</p>
+    <a class="home" href="index.html">← Volver al fin de semana</a>
+    <p class="src">Fuentes: web oficial y guía de visita de Patrimoni, Generalitat de Catalunya (patrimoni.gencat.cat). Horarios y precios consultados el 25 de noviembre de 2026.</p>
+  </div>
+</footer>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script></body>
+</html>
