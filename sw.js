@@ -1,5 +1,5 @@
 // Costa Brava offline cache. The version changes whenever a file changes.
-const CACHE = 'costa-brava-e24c037c03';
+const CACHE = 'costa-brava-4ba51b9d4d';
 const FILES = [
  "./",
  "besalu.html",
