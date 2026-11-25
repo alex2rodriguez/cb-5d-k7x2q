@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<title>Lugares y enlaces</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --night: #0d1827; --night-2: #13233a; --night-3: #1a2f4c;
+    --text: #f1ece3; --text-soft: #b4bfce;
+    --gold: #d8b878; --gold-soft: #a98d5a; --rose: #e0959c;
+    --line: rgba(216,184,120,0.28);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-padding-top: 24px; }
+  body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; font-weight: 300; overflow-x: clip;
+    padding-bottom: env(safe-area-inset-bottom,0px); }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  .wrap { max-width: 980px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
+
+  .back { position: absolute; top: calc(env(safe-area-inset-top,0px) + 18px); left: max(20px, env(safe-area-inset-left,0px)); z-index: 2;
+    font-size: 0.9rem; color: var(--text); text-decoration: none; background: rgba(13,24,39,0.6); border: 1px solid var(--line); padding: 0.5rem 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .back:hover, .back:focus-visible { border-color: var(--gold); color: var(--gold); }
+
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 62vh; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,24,39,0.45) 0%, rgba(13,24,39,0.3) 40%, rgba(13,24,39,0.95) 100%); }
+  .hero .wrap { width: 100%; padding-block: 8rem 3rem; }
+  .kicker { color: var(--gold); font-size: 0.95rem; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 1; margin-top: 0.6rem; }
+  .hero .sub { font-family: var(--display); font-style: italic; font-size: clamp(1.25rem, 3vw, 1.7rem); margin-top: 1rem; max-width: 34ch; }
+
+  .toc { border-block: 1px solid var(--line); background: var(--night-2); }
+  .toc .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem; padding-block: 0.6rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  section.band { padding-block: 3.6rem 0.6rem; }
+  .band h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-style: italic; font-weight: 400; line-height: 1.1; }
+  .band .lead { color: var(--text-soft); margin-top: 0.7rem; max-width: 62ch; }
+
+  .why p.big { font-family: var(--display); font-size: clamp(1.35rem, 3.2vw, 1.75rem); line-height: 1.45; margin-top: 1.2rem; max-width: 40ch; }
+  .why ul { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .why li { border-top: 1px solid var(--line); padding-top: 0.8rem; color: var(--text-soft); }
+  .why li b { display: block; color: var(--text); font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; }
+  .card h3 { font-size: 1.5rem; color: var(--gold); font-weight: 500; }
+  .card .hl { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; margin-top: 0.4rem; white-space: nowrap; }
+  .card p, .card li { color: var(--text-soft); font-size: 0.95rem; }
+  .card p { margin-top: 0.4rem; }
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .card strong { color: var(--text); font-weight: 400; }
+  .note { margin-top: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose); background: var(--night-2); color: var(--text-soft); font-size: 0.95rem; max-width: 70ch; }
+  .note b { color: var(--rose); font-weight: 400; }
+
+  .tour { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: s; }
+  .tour li { counter-increment: s; display: grid; grid-template-columns: 3.2rem minmax(0,1fr); gap: 0 1.1rem; position: relative; padding-bottom: 1.8rem; }
+  .tour li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--night); background: var(--gold); width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; line-height: 1; }
+  .tour li::after { content: ""; position: absolute; left: 1.3rem; top: 2.9rem; bottom: 0.2rem; width: 1px; background: var(--line); }
+  .tour li:last-child::after { display: none; }
+  .tour h3 { font-size: clamp(1.45rem, 3.4vw, 1.85rem); line-height: 1.15; padding-top: 0.2rem; }
+  .tour h3 small { font-family: var(--body); font-size: 0.8rem; color: var(--rose); font-weight: 400; margin-left: 0.5rem; white-space: nowrap; }
+  .tour p { color: var(--text-soft); margin-top: 0.4rem; max-width: 64ch; }
+  .tour p strong { color: var(--text); font-weight: 400; }
+  .fig { margin: 0.9rem 0 0.2rem; max-width: 520px; }
+  .fig img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border: 1px solid var(--line); background: var(--night-2); }
+  .tag { display: inline-block; font-size: 0.75rem; color: var(--night); background: var(--rose); padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; font-family: var(--body); font-weight: 500; }
+
+  .timeline { margin-top: 1.8rem; border-left: 1px solid var(--line); padding-left: 1.4rem; display: grid; gap: 1.2rem; }
+  .ev { position: relative; }
+  .ev::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--night); border: 1.5px solid var(--gold); }
+  .ev .y { font-family: var(--display); font-size: 1.45rem; color: var(--rose); line-height: 1.2; white-space: nowrap; }
+  .ev p { color: var(--text-soft); max-width: 64ch; }
+  .legend { margin-top: 1.6rem; font-family: var(--display); font-style: italic; font-size: 1.25rem; line-height: 1.5; max-width: 52ch; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .legend span { display: block; font-family: var(--body); font-style: normal; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem; }
+
+  footer { margin-top: 3.4rem; background: var(--night-2); border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 2.6rem 3rem; text-align: center; }
+  footer p.big { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.25; }
+  footer .src { color: var(--text-soft); font-size: 0.8rem; margin-top: 1.6rem; line-height: 1.7; }
+  footer .home { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero { min-height: 56vh; }
+    .hero .wrap { padding-block: 6rem 2.2rem; }
+    .tour li { grid-template-columns: 2.6rem minmax(0,1fr); gap: 0 0.9rem; }
+    .tour li::before { width: 2.2rem; height: 2.2rem; font-size: 1.3rem; }
+    .tour li::after { left: 1.1rem; top: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: rise 0.9s ease both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: 0.24s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  }
+
+.ml { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9rem; color: var(--gold); }
+.places { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.place { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.place .role { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); }
+.place h3 { font-size: 1.6rem; line-height: 1.15; }
+.place p { color: var(--text-soft); font-size: 0.95rem; }
+.place p a { color: var(--gold); }
+.place .warn { color: var(--rose); font-size: 0.9rem; }
+.place .btns { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.7rem; }
+.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid var(--gold-soft); color: var(--gold); text-decoration: none; font-size: 0.9rem; }
+.btn:hover, .btn:focus-visible { background: var(--night-3); border-color: var(--gold); }
+.btn.fill { background: var(--gold); color: var(--night); border-color: var(--gold); font-weight: 400; }
+.btn.fill:hover, .btn.fill:focus-visible { background: #e6ca90; }
+.tbl { width: 100%; border-collapse: collapse; margin-top: 1.4rem; }
+.tbl th, .tbl td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.95rem; color: var(--text-soft); }
+.tbl th { color: var(--gold); font-weight: 400; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.tbl td:first-child { color: var(--text); white-space: nowrap; }
+.tbl .closed { color: var(--rose); }
+@media (max-width: 640px) {
+  .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; }
+  .tbl thead { display: none; }
+  .tbl tr { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .tbl td { border: 0; padding: 0.1rem 0; }
+  .tbl td:first-child { white-space: normal; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back" href="index.html">← Volver al fin de semana</a>
+  <img src="images/parador.jpg" alt="El Parador de Aiguablava sobre el acantilado, frente al mar">
+  <div class="wrap">
+    <div class="kicker">Mapas, webs y teléfonos</div>
+    <h1>Lugares y enlaces</h1>
+    <p class="sub">Todo lo que hace falta en la carretera. Cómo llegar a cada sitio, su web oficial y a quién llamar.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#dormir">Dormir</a>
+    <a href="#sabado">Sábado</a>
+    <a href="#begur">Begur</a>
+    <a href="#besalu">Besalú</a>
+    <a href="#girona">Girona</a>
+  </div>
+</nav>
+<section class="band"><div class="wrap"><div class="note" style="margin-top:0"><b>Cómo se usa.</b> El botón dorado abre Google Maps con la ruta desde donde estemos. Los demás botones llevan a la web oficial del sitio. Cuando no hemos encontrado una web oficial lo decimos, y los datos que vienen de fuentes no oficiales llevan un aviso. Los horarios son los de invierno y pueden cambiar, por eso lo más seguro es llamar.</div></div></section>
+<section class="band" id="dormir"><div class="wrap">
+<h2>Dormir</h2><p class="lead">Parador de Aiguablava</p><div class="places">
+<div class="place">
+<div class="role">Hotel, noche del sábado</div>
+<h3>Parador de Aiguablava</h3>
+<p>Platja d'Aiguablava, 17255 Begur</p>
+<p><a href="tel:+34972622162">+34 972 622 162</a> · <a href="mailto:aiguablava@parador.es">aiguablava@parador.es</a></p>
+<p>Según su web oficial tiene aparcamiento exterior, piscina de temporada, sauna, servicio de habitaciones y carga para coches eléctricos.</p>
+<p>Entrada desde las 14:00 y salida a las 12:00 (datos de una reserva, no de la web oficial).</p>
+<p class="warn">No hemos podido leer el horario del restaurante ni del desayuno en su web. Conviene llamar.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parador+de+Aiguablava%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://paradores.es/en/parador-de-aiguablava" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://paradores.es/en/restaurant-parador-de-aiguablava" target="_blank" rel="noopener">Restaurante ↗</a></div></div>
+</div></div></section>
+<section class="band" id="sabado"><div class="wrap">
+<h2>Sábado 5 de diciembre</h2><p class="lead">Sant Pere de Rodes, Cadaqués y cena</p><div class="places">
+<div class="place">
+<div class="role">11:00 · Visita</div>
+<h3>Monasterio de Sant Pere de Rodes</h3>
+<p>Camí del Monestir s/n, 17489 El Port de la Selva</p>
+<p><a href="tel:+34972387559">+34 972 387 559</a> · <a href="mailto:monuments.acdpc@gencat.cat">monuments.acdpc@gencat.cat</a></p>
+<p>Abierto de martes a sábado de 10:00 a 17:30. La taquilla cierra 30 minutos antes. La entrada es gratuita mientras duran las obras.</p>
+<p class="warn">La web no dice qué zonas están abiertas durante las obras. Conviene escribir antes de ir.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Monestir+de+Sant+Pere+de+Rodes%2C+El+Port+de+la+Selva" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://patrimoni.gencat.cat/en/monuments/monuments/sant-pere-de-rodes-monumental-complex" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+<div class="place">
+<div class="role">12:50 · Información</div>
+<h3>Oficina de turismo de Cadaqués</h3>
+<p>Cadaqués (la dirección exacta no está en su web oficial)</p>
+<p><a href="tel:+34972258315">+34 972 258 315</a></p>
+<p>El teléfono viene de webs de viaje, no de la web oficial. El Ayuntamiento tiene el +34 972 258 200.</p>
+<p class="warn">No hemos encontrado su horario del sábado en invierno.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Oficina+de+Turisme%2C+Cadaqu%C3%A9s" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://www.visitcadaques.org" target="_blank" rel="noopener">Web de turismo ↗</a><a class="btn" href="https://www.cadaques.cat" target="_blank" rel="noopener">Ayuntamiento ↗</a></div></div>
+<div class="place">
+<div class="role">14:30 · Primera opción de comida</div>
+<h3>Compartir</h3>
+<p>Riera Sant Vicenç s/n, 17488 Cadaqués</p>
+<p><a href="tel:+34972258482">+34 972 258 482</a></p>
+<p>Cocina mediterránea para compartir. Su web no da el horario. Michelin habla de comida de 13:00 a 15:00.</p>
+<p class="warn">Los horarios de invierno no están confirmados.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Compartir+Cadaqu%C3%A9s" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://www.compartircadaques.com" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://www.compartircadaques.com/reserves-ca/" target="_blank" rel="noopener">Reservar ↗</a></div></div>
+<div class="place">
+<div class="role">14:30 · Alternativa de comida</div>
+<h3>El Barroco</h3>
+<p>Carrer Pla d'en Retalla 1, 17488 Cadaqués</p>
+<p><a href="tel:+34644258600">+34 644 258 600</a> · <a href="tel:+34644527000">+34 644 527 000</a> · <a href="mailto:reservation@elbarrococadaques.com">reservation@elbarrococadaques.com</a></p>
+<p>Cocina libanesa. Su web dice comida de 13:00 a 14:30 y cena de 19:30 a 21:00 todos los días.</p>
+<p class="warn">Otra web dice que cierra sábados y domingos. Mejor confirmar por teléfono.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=El+Barroco+Cadaqu%C3%A9s" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://elbarrococadaques.com" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+<div class="place">
+<div class="role">20:30 · Cena en el hotel</div>
+<h3>Comedor del Parador</h3>
+<p>Platja d'Aiguablava, 17255 Begur</p>
+<p><a href="tel:+34972622162">+34 972 622 162</a></p>
+<p>Cena sin salir del hotel.</p>
+<p class="warn">Horario del sábado no confirmado. Llamar para reservar.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parador+de+Aiguablava%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://paradores.es/en/restaurant-parador-de-aiguablava" target="_blank" rel="noopener">Web del restaurante ↗</a></div></div>
+<div class="place">
+<div class="role">20:30 · Cena fuera del hotel</div>
+<h3>AlKostat del Mar</h3>
+<p>Carrer del Mar 4, Sa Riera, 17255 Begur</p>
+<p><a href="tel:+34972600835">+34 972 600 835</a></p>
+<p>Arroces junto al mar. No hemos encontrado una web propia, la ficha de Michelin no es su web.</p>
+<p class="warn">El teléfono viene de un directorio y los horarios de diciembre no están confirmados.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=AlKostat+del+Mar%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://guide.michelin.com/en/catalunya/begur/restaurant/alkostat-del-mar" target="_blank" rel="noopener">Ficha Michelin ↗</a></div></div>
+</div></div></section>
+<section class="band" id="begur"><div class="wrap">
+<h2>Domingo 6 de diciembre · Begur</h2><p class="lead">Desayuno y paseo</p><div class="places">
+<div class="place">
+<div class="role">09:45 · Primera opción de desayuno</div>
+<h3>Fitzroy Café</h3>
+<p>Carrer de Francesc Forgas 1, Plaça de la Iglesia, 17255 Begur</p>
+<p><a href="tel:+34695341895">+34 695 341 895</a> · <a href="mailto:hola@fitzroycafe.com">hola@fitzroycafe.com</a></p>
+<p>Está en Begur. Su web dice de 09:00 a 14:00 de miércoles a domingo y cerrado los martes.</p>
+<p class="warn">El teléfono viene de su Facebook y una publicación habla de otro horario. Mejor preguntar.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Fitzroy+Caf%C3%A9%2C+Pla%C3%A7a+de+la+Iglesia%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://fitzroycafe.com" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+<div class="place">
+<div class="role">Alternativa de desayuno</div>
+<h3>Sa Garrofa</h3>
+<p>Camí del Mas Rostei s/n, 17255 Begur (dato de un directorio)</p>
+<p>No tiene web oficial que hayamos encontrado.</p>
+<p class="warn">Una reseña dice que ha cambiado de dueños y de estilo. Verifica que sigue abierto y que sirve brunch antes de contar con él.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Sa+Garrofa%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a></div></div>
+<div class="place">
+<div class="role">Información</div>
+<h3>Oficina de turismo de Begur</h3>
+<p>Av. Onze de Setembre 5, 17255 Begur</p>
+<p><a href="tel:+34972624520">+34 972 624 520</a> · <a href="mailto:turisme@begur.cat">turisme@begur.cat</a></p>
+<p>Sábado de 10:00 a 14:00 según su web. El domingo 6, una página dice de 10:00 a 13:00 y otra no lo lista.</p>
+<p class="warn">No hemos encontrado el horario oficial del castillo. Se puede preguntar aquí.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Oficina+de+Turisme%2C+Avinguda+Onze+de+Setembre+5%2C+Begur" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://visitbegur.cat" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+</div></div></section>
+<section class="band" id="besalu"><div class="wrap">
+<h2>Domingo 6 de diciembre · Besalú</h2><p class="lead">Puente, mikvé y comida</p><div class="places">
+<div class="place">
+<div class="role">Visita guiada al mikvé</div>
+<h3>Oficina de turismo de Besalú</h3>
+<p>Carrer del Pont 1, 17850 Besalú</p>
+<p><a href="tel:+34972591240">+34 972 591 240</a> · <a href="mailto:turisme@besalu.cat">turisme@besalu.cat</a></p>
+<p>Desde aquí sale la visita guiada de 30 minutos al barrio judío y al mikvé, a 2,25 €. No hay página para reservar, se hace por teléfono o correo.</p>
+<p class="warn">Su horario del domingo está solo como imagen y no lo hemos podido leer. Otro correo posible: turisme@ajbesalu.cat.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Oficina+de+Turisme+Besal%C3%BA%2C+Carrer+del+Pont+1" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://besalu.cat/oficina-de-turisme-2/" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+<div class="place">
+<div class="role">14:30 · Primera opción de comida</div>
+<h3>Restaurante Pont Vell</h3>
+<p>Carrer Pont Vell 24, 17850 Besalú</p>
+<p><a href="tel:+34972591027">+34 972 591 027</a> · <a href="mailto:info@restaurantpontvell.com">info@restaurantpontvell.com</a></p>
+<p>Comida de miércoles a domingo. También se reserva por WhatsApp. Tiene escaleras.</p>
+<p class="warn">Su web dice comida de 13:00 a 17:00 y, en otro apartado, de 13:00 a 15:00. Confirma por teléfono.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Restaurant+Pont+Vell%2C+Besal%C3%BA" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://www.restaurantpontvell.com" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://restaurantpontvell.myrestoo.net" target="_blank" rel="noopener">Reservar ↗</a></div></div>
+<div class="place">
+<div class="role">Alternativa de comida</div>
+<h3>Restaurante Cúria Reial</h3>
+<p>Plaça de la Llibertat 8-9, 17850 Besalú</p>
+<p><a href="tel:+34972590263">+34 972 590 263</a> · <a href="mailto:info@curiareial.com">info@curiareial.com</a></p>
+<p>Se reserva en su web, por teléfono o por correo.</p>
+<p class="warn">No hemos encontrado su horario del domingo.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Restaurant+C%C3%BAria+Reial%2C+Besal%C3%BA" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://www.curiareial.com/" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+</div></div></section>
+<section class="band" id="girona"><div class="wrap">
+<h2>Domingo 6 de diciembre · Girona</h2><p class="lead">Paseo del atardecer</p><div class="places">
+<div class="place">
+<div class="role">Información</div>
+<h3>Oficina de turismo de Girona</h3>
+<p>Rambla de la Llibertat 1, 17004 Girona</p>
+<p><a href="tel:+34972010001">+34 972 010 001</a> · <a href="mailto:turisme@ajgirona.cat">turisme@ajgirona.cat</a></p>
+<p class="warn">No hemos encontrado su horario de domingo en invierno.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Oficina+de+Turisme%2C+Rambla+de+la+Llibertat+1%2C+Girona" target="_blank" rel="noopener">Cómo llegar ↗</a></div></div>
+<div class="place">
+<div class="role">Paseo · Hasta las 16:30</div>
+<h3>Catedral de Girona</h3>
+<p>Plaça de la Catedral s/n, 17004 Girona</p>
+<p><a href="tel:+34972427189">+34 972 427 189</a></p>
+<p>Del 1 de noviembre al 14 de marzo abre los domingos de 12:00 a 16:30. Entrada conjunta con Sant Feliu: 7,50 € adultos y 5 € reducida, con audioguía.</p>
+<p class="warn">A las 16:30 ya habrá cerrado.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Catedral+de+Girona" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://catedraldegirona.cat/visita-cultural-catedral/" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://tickets.catedraldegirona.cat/ca/entrada-a-la-catedral-de-girona-i-basilica-de-st-feliu_i8" target="_blank" rel="noopener">Entradas ↗</a></div></div>
+<div class="place">
+<div class="role">Paseo · Hasta las 17:30</div>
+<h3>Basílica de Sant Feliu</h3>
+<p>Pujada de Sant Feliu 29, 17004 Girona</p>
+<p><a href="tel:+34972201407">+34 972 201 407</a></p>
+<p>Los domingos abre de 13:00 a 17:30. Es la única visita interior que encaja con nuestra hora.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bas%C3%ADlica+de+Sant+Feliu%2C+Girona" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://catedraldegirona.cat/visita-cultural-basilica/" target="_blank" rel="noopener">Web oficial ↗</a></div></div>
+<div class="place">
+<div class="role">Paseo · Cerrados a nuestra hora</div>
+<h3>Banys Àrabs</h3>
+<p>Carrer de Ferran el Catòlic s/n, 17004 Girona</p>
+<p><a href="tel:+34972190969">+34 972 190 969</a></p>
+<p>Los domingos abren de 10:00 a 14:00. Entrada 3 €.</p>
+<p class="warn">Estarán cerrados a las 16:30.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Banys+%C3%80rabs%2C+Girona" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://www.banysarabs.cat" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://www.banysarabs.cat/horaris-i-preus/" target="_blank" rel="noopener">Horarios y precios ↗</a></div></div>
+<div class="place">
+<div class="role">Paseo · Cerrado a nuestra hora</div>
+<h3>Museu d'Història dels Jueus (El Call)</h3>
+<p>Carrer de la Força 8, 17004 Girona</p>
+<p><a href="tel:+34972216761">+34 972 216 761</a></p>
+<p>Los domingos abre de 10:00 a 14:00. Su web dice que el primer domingo de cada mes la entrada es gratuita, y el 6 de diciembre lo es.</p>
+<p class="warn">Estará cerrado a las 16:30. Los callejones del Call se pasean libremente.</p>
+<div class="btns"><a class="btn fill" href="https://www.google.com/maps/dir/?api=1&amp;destination=Museu+d%27Hist%C3%B2ria+dels+Jueus%2C+Carrer+de+la+For%C3%A7a+8%2C+Girona" target="_blank" rel="noopener">Cómo llegar ↗</a><a class="btn" href="https://web2.girona.cat/call/cat/index.php" target="_blank" rel="noopener">Web oficial ↗</a><a class="btn" href="https://web2.girona.cat/call/cat/info.php" target="_blank" rel="noopener">Horarios y precios ↗</a></div></div>
+</div></div></section>
+<footer>
+  <div class="wrap">
+    <p class="big">Un mapa en el bolsillo y la tarde sin prisa.</p>
+    <a class="home" href="index.html">← Volver al fin de semana</a>
+    <p class="src">Fuentes: webs oficiales de cada lugar, Patrimoni de la Generalitat y la Guía Michelin donde se indica. Datos consultados el 25 de noviembre de 2026.</p>
+  </div>
+</footer>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script></body>
+</html>

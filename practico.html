@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<title>Información práctica</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --night: #0d1827; --night-2: #13233a; --night-3: #1a2f4c;
+    --text: #f1ece3; --text-soft: #b4bfce;
+    --gold: #d8b878; --gold-soft: #a98d5a; --rose: #e0959c;
+    --line: rgba(216,184,120,0.28);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-padding-top: 24px; }
+  body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; font-weight: 300; overflow-x: clip;
+    padding-bottom: env(safe-area-inset-bottom,0px); }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  .wrap { max-width: 980px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
+
+  .back { position: absolute; top: calc(env(safe-area-inset-top,0px) + 18px); left: max(20px, env(safe-area-inset-left,0px)); z-index: 2;
+    font-size: 0.9rem; color: var(--text); text-decoration: none; background: rgba(13,24,39,0.6); border: 1px solid var(--line); padding: 0.5rem 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .back:hover, .back:focus-visible { border-color: var(--gold); color: var(--gold); }
+
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 62vh; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,24,39,0.45) 0%, rgba(13,24,39,0.3) 40%, rgba(13,24,39,0.95) 100%); }
+  .hero .wrap { width: 100%; padding-block: 8rem 3rem; }
+  .kicker { color: var(--gold); font-size: 0.95rem; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: 1; margin-top: 0.6rem; }
+  .hero .sub { font-family: var(--display); font-style: italic; font-size: clamp(1.25rem, 3vw, 1.7rem); margin-top: 1rem; max-width: 34ch; }
+
+  .toc { border-block: 1px solid var(--line); background: var(--night-2); }
+  .toc .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem; padding-block: 0.6rem; }
+  .toc a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  section.band { padding-block: 3.6rem 0.6rem; }
+  .band h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-style: italic; font-weight: 400; line-height: 1.1; }
+  .band .lead { color: var(--text-soft); margin-top: 0.7rem; max-width: 62ch; }
+
+  .why p.big { font-family: var(--display); font-size: clamp(1.35rem, 3.2vw, 1.75rem); line-height: 1.45; margin-top: 1.2rem; max-width: 40ch; }
+  .why ul { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .why li { border-top: 1px solid var(--line); padding-top: 0.8rem; color: var(--text-soft); }
+  .why li b { display: block; color: var(--text); font-family: var(--display); font-size: 1.35rem; font-weight: 500; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; }
+  .card h3 { font-size: 1.5rem; color: var(--gold); font-weight: 500; }
+  .card .hl { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; margin-top: 0.4rem; white-space: nowrap; }
+  .card p, .card li { color: var(--text-soft); font-size: 0.95rem; }
+  .card p { margin-top: 0.4rem; }
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .card strong { color: var(--text); font-weight: 400; }
+  .note { margin-top: 1rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose); background: var(--night-2); color: var(--text-soft); font-size: 0.95rem; max-width: 70ch; }
+  .note b { color: var(--rose); font-weight: 400; }
+
+  .tour { list-style: none; padding: 0; margin: 1.8rem 0 0; counter-reset: s; }
+  .tour li { counter-increment: s; display: grid; grid-template-columns: 3.2rem minmax(0,1fr); gap: 0 1.1rem; position: relative; padding-bottom: 1.8rem; }
+  .tour li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--night); background: var(--gold); width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; line-height: 1; }
+  .tour li::after { content: ""; position: absolute; left: 1.3rem; top: 2.9rem; bottom: 0.2rem; width: 1px; background: var(--line); }
+  .tour li:last-child::after { display: none; }
+  .tour h3 { font-size: clamp(1.45rem, 3.4vw, 1.85rem); line-height: 1.15; padding-top: 0.2rem; }
+  .tour h3 small { font-family: var(--body); font-size: 0.8rem; color: var(--rose); font-weight: 400; margin-left: 0.5rem; white-space: nowrap; }
+  .tour p { color: var(--text-soft); margin-top: 0.4rem; max-width: 64ch; }
+  .tour p strong { color: var(--text); font-weight: 400; }
+  .fig { margin: 0.9rem 0 0.2rem; max-width: 520px; }
+  .fig img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border: 1px solid var(--line); background: var(--night-2); }
+  .tag { display: inline-block; font-size: 0.75rem; color: var(--night); background: var(--rose); padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; font-family: var(--body); font-weight: 500; }
+
+  .timeline { margin-top: 1.8rem; border-left: 1px solid var(--line); padding-left: 1.4rem; display: grid; gap: 1.2rem; }
+  .ev { position: relative; }
+  .ev::before { content: ""; position: absolute; left: calc(-1.4rem - 5px); top: 0.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--night); border: 1.5px solid var(--gold); }
+  .ev .y { font-family: var(--display); font-size: 1.45rem; color: var(--rose); line-height: 1.2; white-space: nowrap; }
+  .ev p { color: var(--text-soft); max-width: 64ch; }
+  .legend { margin-top: 1.6rem; font-family: var(--display); font-style: italic; font-size: 1.25rem; line-height: 1.5; max-width: 52ch; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .legend span { display: block; font-family: var(--body); font-style: normal; font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem; }
+
+  footer { margin-top: 3.4rem; background: var(--night-2); border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 2.6rem 3rem; text-align: center; }
+  footer p.big { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.25; }
+  footer .src { color: var(--text-soft); font-size: 0.8rem; margin-top: 1.6rem; line-height: 1.7; }
+  footer .home { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero { min-height: 56vh; }
+    .hero .wrap { padding-block: 6rem 2.2rem; }
+    .tour li { grid-template-columns: 2.6rem minmax(0,1fr); gap: 0 0.9rem; }
+    .tour li::before { width: 2.2rem; height: 2.2rem; font-size: 1.3rem; }
+    .tour li::after { left: 1.1rem; top: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: rise 0.9s ease both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: 0.24s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  }
+
+.ml { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9rem; color: var(--gold); }
+.places { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.place { background: var(--night-2); border: 1px solid var(--line); padding: 1.2rem 1.3rem 1.3rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.place .role { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); }
+.place h3 { font-size: 1.6rem; line-height: 1.15; }
+.place p { color: var(--text-soft); font-size: 0.95rem; }
+.place p a { color: var(--gold); }
+.place .warn { color: var(--rose); font-size: 0.9rem; }
+.place .btns { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.7rem; }
+.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid var(--gold-soft); color: var(--gold); text-decoration: none; font-size: 0.9rem; }
+.btn:hover, .btn:focus-visible { background: var(--night-3); border-color: var(--gold); }
+.btn.fill { background: var(--gold); color: var(--night); border-color: var(--gold); font-weight: 400; }
+.btn.fill:hover, .btn.fill:focus-visible { background: #e6ca90; }
+.tbl { width: 100%; border-collapse: collapse; margin-top: 1.4rem; }
+.tbl th, .tbl td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.95rem; color: var(--text-soft); }
+.tbl th { color: var(--gold); font-weight: 400; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.tbl td:first-child { color: var(--text); white-space: nowrap; }
+.tbl .closed { color: var(--rose); }
+@media (max-width: 640px) {
+  .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; }
+  .tbl thead { display: none; }
+  .tbl tr { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .tbl td { border: 0; padding: 0.1rem 0; }
+  .tbl td:first-child { white-space: normal; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back" href="index.html">← Volver al fin de semana</a>
+  <img src="images/rodes.jpg" alt="Las torres del monasterio de Sant Pere de Rodes entre el monte y el mar">
+  <div class="wrap">
+    <div class="kicker">Antes de salir y por el camino</div>
+    <h1>Información práctica</h1>
+    <p class="sub">Horarios, tiempos de coche, aparcamiento y teléfonos en un solo sitio.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#horarios">Horarios</a>
+    <a href="#coche">En coche</a>
+    <a href="#aparcar">Aparcar</a>
+    <a href="#telefonos">Teléfonos</a>
+    <a href="#llevar">Qué llevar</a>
+  </div>
+</nav>
+
+<section class="band" id="horarios">
+  <div class="wrap">
+    <h2>Horarios del fin de semana</h2>
+    <p class="lead">Son los horarios de invierno de las webs oficiales. La última columna dice cómo encajan con nuestro plan. Cuando una fuente se contradice con otra, lo escribimos.</p>
+    <table class="tbl">
+      <thead><tr><th>Lugar</th><th>Horario</th><th>A nuestra hora</th></tr></thead>
+      <tbody>
+        <tr><td>Sábado · Sant Pere de Rodes</td><td>De martes a sábado, de 10:00 a 17:30. La taquilla cierra 30 minutos antes. Entrada gratuita mientras duran las obras.</td><td>Abierto a las 11:00. Las zonas abiertas no están confirmadas.</td></tr>
+        <tr><td>Sábado · Compartir</td><td>Su web no da horario. Michelin habla de comida de 13:00 a 15:00.</td><td>Confirmar por teléfono.</td></tr>
+        <tr><td>Sábado · El Barroco</td><td>Su web dice comida de 13:00 a 14:30 todos los días. Otra web dice que cierra sábados y domingos.</td><td>Confirmar por teléfono.</td></tr>
+        <tr><td>Sábado · Parador</td><td>Entrada desde las 14:00 y salida a las 12:00, según una reserva. Desayuno de 08:00 a 11:00, según una web de viajes.</td><td>Llegamos a las 17:20. Confirmar el horario del comedor.</td></tr>
+        <tr><td>Domingo · Fitzroy Café</td><td>De 09:00 a 14:00 de miércoles a domingo, según su web. Cierra los martes.</td><td>Abierto a las 09:45.</td></tr>
+        <tr><td>Domingo · Oficina de turismo de Begur</td><td>Una página dice de 10:00 a 13:00. Otra no lista el domingo.</td><td>Confirmar por teléfono.</td></tr>
+        <tr><td>Domingo · Mikvé de Besalú</td><td>Visita guiada con pases a las 13:30 y a las 17:30, salvo martes y jueves, según el Ayuntamiento. Un blog habla de las 17:00.</td><td>El pase de las 13:30 encaja con la llegada, si se confirma.</td></tr>
+        <tr><td>Domingo · Restaurante Pont Vell</td><td>Comida de 13:00 a 17:00, aunque otro apartado de su web dice de 13:00 a 15:00.</td><td>Probablemente abierto a las 14:30. Confirmar.</td></tr>
+        <tr><td>Domingo · Catedral de Girona</td><td>Los domingos de 12:00 a 16:30 (1 de noviembre al 14 de marzo).</td><td class="closed">Cierra justo a las 16:30.</td></tr>
+        <tr><td>Domingo · Basílica de Sant Feliu</td><td>Los domingos de 13:00 a 17:30.</td><td>Abierta hasta las 17:30.</td></tr>
+        <tr><td>Domingo · Banys Àrabs</td><td>Los domingos de 10:00 a 14:00.</td><td class="closed">Cerrados.</td></tr>
+        <tr><td>Domingo · Museo del Call</td><td>Los domingos de 10:00 a 14:00. Gratis el primer domingo del mes, y el 6 de diciembre lo es.</td><td class="closed">Cerrado.</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>Girona por la tarde.</b> A las 16:30 solo Sant Feliu seguirá abierta. Si quisiéramos entrar en la catedral, habría que llegar antes de las 16:30. El paseo por el río, el Call y las murallas se disfruta igual.</div>
+  </div>
+</section>
+
+<section class="band" id="coche">
+  <div class="wrap">
+    <h2>En coche</h2>
+    <p class="lead">Tiempos de Google Maps para conducir, sin contar paradas.</p>
+    <table class="tbl">
+      <thead><tr><th>Tramo</th><th>Tiempo</th><th>Distancia</th></tr></thead>
+      <tbody>
+        <tr><td>Casa a Sant Pere de Rodes</td><td>1 h 58 min</td><td>162 km</td></tr>
+        <tr><td>Sant Pere de Rodes a Cadaqués</td><td>36 min</td><td>19,8 km</td></tr>
+        <tr><td>Cadaqués al Parador de Aiguablava</td><td>1 h 34 min</td><td>77,9 km</td></tr>
+        <tr><td>Parador a Begur</td><td>10 min</td><td>5,3 km</td></tr>
+        <tr><td>Begur a Besalú</td><td>1 h 02 min</td><td>66 km</td></tr>
+        <tr><td>Besalú a Girona</td><td>35 min</td><td>38 km</td></tr>
+        <tr><td>Girona a casa</td><td>1 h 17 min</td><td>105 km</td></tr>
+      </tbody>
+    </table>
+    <div class="cards">
+      <div class="card">
+        <h3>La carretera de Cadaqués</h3>
+        <p>Es una carretera de muchas curvas. Salimos de Cadaqués a las 15:45 como tarde, para no hacer la última parte del camino de noche.</p>
+      </div>
+      <div class="card">
+        <h3>La luz</h3>
+        <p>El sol se pone a las 17:21 los dos días. El domingo volvemos de Girona de noche.</p>
+      </div>
+      <div class="card">
+        <h3>Fin de semana largo</h3>
+        <p>El domingo 6 de diciembre es el Día de la Constitución y no se traslada. El martes 8 también es festivo. Mucha gente se tomará el lunes libre, así que puede haber más tráfico y restaurantes llenos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="aparcar">
+  <div class="wrap">
+    <h2>Dónde aparcar</h2>
+    <p class="lead">Besalú y Girona tienen mapa del paseo y dos opciones de aparcamiento cada una. Para el resto, esto es lo que hemos encontrado.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Sant Pere de Rodes</h3>
+        <p>No hemos encontrado datos oficiales de aparcamiento. Una guía antigua habla de un aparcamiento en el Coll del Bosc, pero no sabemos la distancia a la entrada ni el precio.</p>
+      </div>
+      <div class="card">
+        <h3>Cadaqués</h3>
+        <p>No hemos encontrado tarifas oficiales. Webs de terceros hablan de zona azul a 0,70 € por hora y de un parking a 3,15 € por hora. No son datos oficiales.</p>
+      </div>
+      <div class="card">
+        <h3>Parador de Aiguablava</h3>
+        <p>Su web oficial indica aparcamiento exterior. No dice si es gratuito.</p>
+      </div>
+      <div class="card">
+        <h3>Besalú</h3>
+        <p>Aparcamiento gratuito al otro lado del puente, según OpenStreetMap. Hay una alternativa junto a Sant Pere.</p>
+        <p><a href="besalu.html#mapa" style="display:inline-flex;align-items:center;min-height:44px">Ver el mapa y los enlaces →</a></p>
+      </div>
+      <div class="card">
+        <h3>Girona</h3>
+        <p>Parking SABA Berenguer i Carnicer, abierto las 24 horas. Alternativa en Santa Caterina.</p>
+        <p><a href="girona.html#mapa" style="display:inline-flex;align-items:center;min-height:44px">Ver el mapa y los enlaces →</a></p>
+      </div>
+      <div class="card">
+        <h3>Begur</h3>
+        <p>No hemos buscado aparcamiento en Begur. Desde el Parador son 10 minutos en coche.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="telefonos">
+  <div class="wrap">
+    <h2>Teléfonos</h2>
+    <p class="lead">Los enlaces llaman directamente desde el móvil.</p>
+    <table class="tbl">
+      <thead><tr><th>Quién</th><th>Teléfono</th><th>Dato</th></tr></thead>
+      <tbody>
+        <tr><td>Emergencias</td><td><a href="tel:112">112</a></td><td>Número europeo de emergencias.</td></tr>
+        <tr><td>Parador de Aiguablava</td><td><a href="tel:+34972622162">+34 972 622 162</a></td><td>Según su web oficial. Correo: aiguablava@parador.es.</td></tr>
+        <tr><td>Sant Pere de Rodes</td><td><a href="tel:+34972387559">+34 972 387 559</a></td><td>Correo: monuments.acdpc@gencat.cat.</td></tr>
+        <tr><td>Turismo de Cadaqués</td><td><a href="tel:+34972258315">+34 972 258 315</a></td><td>Número de webs de viaje, no oficial.</td></tr>
+        <tr><td>Turismo de Begur</td><td><a href="tel:+34972624520">+34 972 624 520</a></td><td>Según su web oficial.</td></tr>
+        <tr><td>Turismo de Besalú</td><td><a href="tel:+34972591240">+34 972 591 240</a></td><td>Visita guiada del mikvé.</td></tr>
+        <tr><td>Turismo de Girona</td><td><a href="tel:+34972010001">+34 972 010 001</a></td><td>Rambla de la Llibertat 1.</td></tr>
+      </tbody>
+    </table>
+    <p class="lead" style="margin-top:1rem">Los teléfonos de cada restaurante y monumento están en <a href="lugares.html">Lugares y enlaces</a>.</p>
+  </div>
+</section>
+
+<section class="band" id="llevar">
+  <div class="wrap">
+    <h2>Qué llevar y qué tener a mano</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Ropa y calzado</h3>
+        <p>Abrigo, porque en lo alto de Sant Pere de Rodes sopla la tramontana. Zapatos cómodos para calles empedradas y escaleras.</p>
+      </div>
+      <div class="card">
+        <h3>Móvil</h3>
+        <p>Cargador o batería externa. Descargar antes en Google Maps el mapa sin conexión de la zona, mientras haya wifi.</p>
+        <p>La versión instalada en la pantalla de inicio se guarda en el móvil y funciona sin cobertura. Los botones de Google Maps y las webs oficiales sí necesitan conexión.</p>
+      </div>
+      <div class="card">
+        <h3>Pagos</h3>
+        <p>Tarjeta y algo de efectivo. El parking SABA de Girona acepta las dos cosas. La entrada a Sant Pere de Rodes es gratuita mientras duran las obras.</p>
+      </div>
+      <div class="card">
+        <h3>Datos por confirmar</h3>
+        <p>Las zonas abiertas de Sant Pere de Rodes, el horario de los restaurantes de Cadaqués, el pase del mikvé del domingo y los horarios del castillo de Begur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="big">Todo lo importante a mano, y el resto para disfrutarlo.</p>
+    <a class="home" href="index.html">← Volver al fin de semana</a>
+    <p class="src">Fuentes: webs oficiales de cada lugar, Google Maps, OpenStreetMap y las guías citadas en cada página. Datos consultados el 25 de noviembre de 2026.</p>
+  </div>
+</footer>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script></body>
+</html>

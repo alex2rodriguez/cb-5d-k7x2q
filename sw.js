@@ -1,5 +1,5 @@
 // Costa Brava offline cache. The version changes whenever a file changes.
-const CACHE = 'costa-brava-176f346ead';
+const CACHE = 'costa-brava-3ec1d55c20';
 const FILES = [
  "./",
  "besalu.html",
@@ -43,6 +43,7 @@ const FILES = [
  "images/girona-peixateries.jpg",
  "images/girona-sant-feliu.jpg",
  "images/parador-piscina.jpg",
+ "images/parador-piscina.png",
  "images/parador.jpg",
  "images/rodes-campanario.jpg",
  "images/rodes-claustro-inferior.jpg",
@@ -53,7 +54,9 @@ const FILES = [
  "images/rodes-santa-helena.jpg",
  "images/rodes.jpg",
  "index.html",
+ "lugares.html",
  "manifest.webmanifest",
+ "practico.html",
  "rodes.html"
 ];
 self.addEventListener('install', function (e) {

@@ -1,5 +1,4 @@
 <!doctype html><html><head><title>Costa Brava para dos</title><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0d1827"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Costa Brava"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-
 <title>Costa Brava para dos</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -192,6 +191,10 @@
 .map-legend i { display: inline-block; width: 38px; height: 0; border-top: 3.6px solid var(--map-sat); border-radius: 2px; }
 .map-legend i.d2 { border-top: 3.6px solid var(--map-sun); }
 .map-note { text-align: center; color: var(--text-soft); font-size: 0.8rem; opacity: 0.8; }
+.quick { background: var(--night-2); border-block: 1px solid var(--line); }
+.quick .wrap { display: flex; flex-wrap: wrap; gap: 0.2rem 2rem; justify-content: center; padding-block: 0.4rem; }
+.quick a { color: var(--gold); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; min-height: 44px; display: inline-flex; align-items: center; }
+.quick a:hover, .quick a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
 
 </style>
 
@@ -204,6 +207,13 @@
     <div class="when"><span>Olga &amp; Alex</span><span>5 y 6 de diciembre de 2026</span></div>
   </div>
 </header>
+
+<nav class="quick" aria-label="Más información">
+  <div class="wrap">
+    <a href="lugares.html">Mapas y enlaces</a>
+    <a href="practico.html">Información práctica</a>
+  </div>
+</nav>
 
 <section class="facts intro" aria-label="Sobre el fin de semana">
   <div class="wrap">
@@ -287,7 +297,7 @@
       <div class="body">
         <h3><span class="ico">⛪</span>Monasterio de Sant Pere de Rodes</h3>
         <p>Un monasterio benedictino de los siglos X y XI, colgado de la sierra sobre el Mediterráneo. Su iglesia románica y su claustro fueron de los más ricos de Cataluña. Le dedicamos algo más de una hora, para abrazarnos frente al mar desde lo alto y respirar juntos el silencio.</p>
-        <p><a href="rodes.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de la visita →</a></p>
+        <p><a href="rodes.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de la visita →</a> &nbsp;·&nbsp; <a href="https://www.google.com/maps/dir/?api=1&destination=Monestir+de+Sant+Pere+de+Rodes%2C+El+Port+de+la+Selva" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Cómo llegar ↗</a></p>
         <figure class="tall">
           <div class="frame"><img src="images/rodes.jpg" alt="Las torres del monasterio de Sant Pere de Rodes entre el monte y el mar" loading="lazy"></div>
         </figure>
@@ -306,6 +316,7 @@
       <div class="body">
         <h3><span class="ico">🚶</span>Cadaqués</h3>
         <p>Un pueblo blanco de pescadores al final de una carretera de curvas. Casas encaladas frente a la bahía, calles empedradas y la luz que atrajo a Dalí y a Picasso. Un lugar hecho para caminar muy juntos.</p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=Cadaqu%C3%A9s" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Cómo llegar ↗</a> &nbsp;·&nbsp; <a href="https://www.visitcadaques.org" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Turismo de Cadaqués ↗</a></p>
         <figure>
           <div class="frame"><img src="images/cadaques-pueblo.jpg" alt="Casas blancas de Cadaqués, la iglesia sobre el pueblo y veleros en la bahía" loading="lazy"></div>
         </figure>
@@ -354,8 +365,9 @@
       <div class="body">
         <h3><span class="ico">🏨</span>Parador de Aiguablava</h3>
         <p>Llegamos con la última luz del día. El Parador se asoma a la cala de Aiguablava, rodeada de pinos y aguas verdes. Primero la habitación, luego la terraza, abrazados mientras cae el sol.</p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=Parador+de+Aiguablava%2C+Begur" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Cómo llegar ↗</a> &nbsp;·&nbsp; <a href="https://paradores.es/en/parador-de-aiguablava" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Web del Parador ↗</a></p>
         <figure>
-          <div class="frame"><img src="images/parador-piscina.jpg" alt="La piscina del Parador de Aiguablava al atardecer, con los pinos reflejados en el agua y el mar al fondo" loading="lazy"></div>
+          <div class="frame"><img src="images/parador-piscina.png" alt="La piscina del Parador de Aiguablava al atardecer, con los pinos reflejados en el agua y el mar al fondo" loading="lazy"></div>
         </figure>
         <div class="sun">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17a6 6 0 0 1 12 0M12 4v3M4.5 9.5l2 2M19.5 9.5l-2 2M2 17h20M6 21h12"/></svg>
@@ -380,7 +392,7 @@
         <div class="options">
           <div class="opt">
             <div class="lbl">En el Parador</div>
-            <div class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Parador+de+Aiguablava+Begur" target="_blank" rel="noopener">Comedor del Parador</a></div>
+            <div class="nm"><a href="https://paradores.es/en/restaurant-parador-de-aiguablava" target="_blank" rel="noopener">Comedor del Parador</a></div>
             <div class="ds">Cena tranquila sin salir del hotel, con la cala a oscuras al otro lado de la ventana.</div>
           </div>
           <div class="opt">
@@ -427,7 +439,7 @@
         <div class="options">
           <div class="opt">
             <div class="lbl">Primera opción</div>
-            <div class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Fitzroy+Caf%C3%A9+Begur" target="_blank" rel="noopener">Fitzroy Café</a></div>
+            <div class="nm"><a href="https://fitzroycafe.com" target="_blank" rel="noopener">Fitzroy Café</a></div>
             <div class="ds">Café de especialidad y brunch, con muy buena fama entre los viajeros.</div>
           </div>
           <div class="opt">
@@ -462,7 +474,7 @@
       <div class="body">
         <h3><span class="ico">🏛</span>Besalú y el Pont Vell</h3>
         <p>Una villa medieval a orillas del río Fluvià. Su puente fortificado mide unos 135 metros, tiene siete arcos desiguales y gira en ángulo recto a mitad del río. Es del siglo XI y se reconstruyó en el siglo XX. Cruzarlo a pie y de la mano, con la torre delante, es el mejor comienzo para la visita.</p>
-        <p><a href="besalu.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de Besalú →</a></p>
+        <p><a href="besalu.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de Besalú →</a> &nbsp;·&nbsp; <a href="https://www.google.com/maps/dir/?api=1&destination=42.19904,2.70362" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Cómo llegar al aparcamiento ↗</a></p>
         <figure>
           <div class="frame"><img src="images/besalu-puente.jpg" alt="El puente fortificado de Besalú con su torre y las casas de piedra de la villa al fondo" loading="lazy"></div>
         </figure>
@@ -479,7 +491,7 @@
         <div class="options">
           <div class="opt">
             <div class="lbl">Primera opción</div>
-            <div class="nm"><a href="https://www.google.com/maps/search/?api=1&query=Pont+Vell+restaurante+Besal%C3%BA" target="_blank" rel="noopener">Pont Vell</a></div>
+            <div class="nm"><a href="https://www.restaurantpontvell.com" target="_blank" rel="noopener">Pont Vell</a></div>
             <div class="ds">Cocina tradicional con producto local. Entre sus platos destaca el rabo de ternera estofado en vino tinto del Empordà.</div>
           </div>
           <div class="opt">
@@ -503,7 +515,7 @@
       <div class="body">
         <h3><span class="ico">🚶</span>Paseo romántico por el centro de Girona</h3>
         <p>Un paseo de la mano por el Barri Vell, con las casas de colores asomadas al río Onyar, las callejuelas de piedra y la Catedral. Con las luces de la tarde, sin ningún plan más que caminar juntos, abrazarnos y besarnos.</p>
-        <p><a href="girona.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de Girona →</a></p>
+        <p><a href="girona.html" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Nuestra guía de Girona →</a> &nbsp;·&nbsp; <a href="https://www.google.com/maps/dir/?api=1&destination=Parking+SABA+Berenguer+i+Carnicer%2C+Girona" target="_blank" rel="noopener" style="color:var(--gold);text-underline-offset:0.18em;text-decoration-thickness:1px;display:inline-flex;align-items:center;min-height:44px">Cómo llegar al aparcamiento ↗</a></p>
         <figure>
           <div class="frame"><img src="images/girona-catedral.jpg" alt="La fachada barroca de la Catedral de Girona y su gran escalinata en el Barri Vell" loading="lazy"></div>
         </figure>
